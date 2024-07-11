@@ -1,0 +1,17 @@
+[project]
+name = "sheet2api"
+version = "0.0.1"
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = ["requirements.txt"] 
+
+requires-python = ">=3.12"
+description = "Simple script to turn any xlsx or csv in a very simple rest api using fastapi"
+readme = "README.md"
+license = {file = "LICENSE.txt"}
+keywords = ["sheet2api", "fastapi", "xlsx", "csv"]
+
+[project.urls]
+Homepage = "https://kmliebl.de"
+Repository = "https://github.com/liebki/sheet2api"

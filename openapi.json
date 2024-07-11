@@ -1,0 +1,400 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "sheet2api",
+    "description": "simply turn any xlsx or csv file into a small rest api.",
+    "contact": {
+      "url": "https://github.com/liebki/sheet2api"
+    },
+    "license": {
+      "name": "GNU General Public License v3.0"
+    },
+    "version": "0.0.1"
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Get Root",
+        "description": "Root endpoint\n\nReturns:\n    str: _description_",
+        "operationId": "get_root__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/headers": {
+      "get": {
+        "summary": "Headers",
+        "description": "Endpoint to get all headers\n\nRaises:\n    no_file_error: _description_\n\nReturns:\n    _type_: _description_",
+        "operationId": "headers_headers_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reload/csv/": {
+      "get": {
+        "summary": "Reload Data Csv",
+        "description": "Endpoint to reload the CSV file with a ?file= argument\n\nArgs:\n    file (str): _description_\n\nReturns:\n    _type_: _description_",
+        "operationId": "reload_data_csv_reload_csv__get",
+        "parameters": [
+          {
+            "name": "file",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "File"
+            }
+          },
+          {
+            "name": "sep",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Sep"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reload/xlsx/": {
+      "get": {
+        "summary": "Reload Data Xlsx",
+        "description": "Endpoint to reload the xlsx file with a ?file= argument\n\nArgs:\n    file (str): _description_\n\nReturns:\n    _type_: _description_",
+        "operationId": "reload_data_xlsx_reload_xlsx__get",
+        "parameters": [
+          {
+            "name": "file",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "File"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/count": {
+      "get": {
+        "summary": "Get Count",
+        "description": "Endpoint to get the count of items\n\nRaises:\n    no_file_error: _description_\n\nReturns:\n    _type_: _description_",
+        "operationId": "get_count_count_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fullcol/{row}": {
+      "get": {
+        "summary": "Full Col",
+        "description": "Endpoint to get a full column by header name\n\nArgs:\n    row (str): _description_\n\nRaises:\n    no_file_error: _description_\n\nReturns:\n    _type_: _description_",
+        "operationId": "full_col_fullcol__row__get",
+        "parameters": [
+          {
+            "name": "row",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Row"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/allrows": {
+      "get": {
+        "summary": "All Rows",
+        "description": "Endpoint to get full rows by count\n\nArgs:\n    row (int): _description_\n\nRaises:\n    no_file_error: _description_\n\nReturns:\n    _type_: _description_",
+        "operationId": "all_rows_allrows_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fullrows/{count}": {
+      "get": {
+        "summary": "Full Rows",
+        "description": "Endpoint to get full rows by count\n\nArgs:\n    row (int): _description_\n\nRaises:\n    no_file_error: _description_\n\nReturns:\n    _type_: _description_",
+        "operationId": "full_rows_fullrows__count__get",
+        "parameters": [
+          {
+            "name": "count",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Count"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fullrow/{row}": {
+      "get": {
+        "summary": "Full Row",
+        "description": "Endpoint to get a full row by index\n\nArgs:\n    row (int): _description_\n\nRaises:\n    no_file_error: _description_\n\nReturns:\n    _type_: _description_",
+        "operationId": "full_row_fullrow__row__get",
+        "parameters": [
+          {
+            "name": "row",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Row"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/item/{header}/{index}": {
+      "get": {
+        "summary": "Get Item",
+        "description": "Endpoint to get a certain cell by header and index\n\nArgs:\n    header (str): _description_\n    index (int): _description_\n\nRaises:\n    no_file_error: _description_\n\nReturns:\n    _type_: _description_",
+        "operationId": "get_item_item__header___index__get",
+        "parameters": [
+          {
+            "name": "header",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Header"
+            }
+          },
+          {
+            "name": "index",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Index"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}
